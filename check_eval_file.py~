@@ -1,0 +1,22 @@
+import os
+import glob
+import json
+import pdb
+import numpy
+
+
+
+path = os.path.expanduser('~/azayats/projects/document-qa_edited/')
+filename = 'output_test-0105'
+filepath = os.path.join(path, filename)
+
+bol_pred = []
+
+with open(filepath) as json_file:  
+        data = json.load(json_file)
+        for ix,key in enumerate(data.keys()):
+            if data[key]['Is Correct'] == 'False' :
+                bol_pred.append(0)
+            else:
+                bol_pred.append(1)
+        pdb.set_trace()
